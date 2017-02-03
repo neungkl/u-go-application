@@ -30,15 +30,12 @@ export class MapPage {
     let mapOptions = {
       center: latLng,
       zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      disableDefaultUI: true
     }
 
     console.log(this.mapElement.nativeElement);
 
-    this.map = new google.maps.Map(this.mapElement.nativeElement, {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
   }
 
 }
