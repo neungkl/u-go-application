@@ -1,0 +1,32 @@
+<ion-content>
+  <ion-searchbar (ionInput)="searchInput($event)"></ion-searchbar>
+  <div padding>
+    <ion-badge classs="category">Add Categories</ion-badge>
+    <div style="display: inline-block;">
+      <ion-badge *ngFor="let item of categories" class="category">{{ item }}</ion-badge>
+    </div>
+  </div>
+
+  <!-- Search Result List -->
+  <div class="result-list">
+    <ion-list>
+      <ion-item *ngFor="let item of seachResults">
+        {{ item.title }}
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- Feature List -->
+
+  <div padding-left padding-right class="feature-list">
+    <div class="card" *ngFor="let item of cards">
+      {{ item }}
+    </div>
+  </div>
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let item of items">
+      {{ item }}
+    </ion-item>
+  </ion-list> -->
+</ion-content>
