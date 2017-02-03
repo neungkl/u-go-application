@@ -1,3 +1,9 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Where To Go</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content>
   <ion-searchbar (ionInput)="searchInput($event)"></ion-searchbar>
   <div padding>
@@ -9,17 +15,17 @@
 
   <!-- Search Result List -->
   <div class="result-list">
-    <ion-list>
-      <ion-item *ngFor="let item of seachResults">
+    <ion-card *ngFor="let item of seachResults">
+      <ion-card-content>
         {{ item.title }}
-      </ion-item>
-    </ion-list>
+      </ion-card-content>
+    </ion-card>
   </div>
 
   <!-- Feature List -->
 
   <div padding-left padding-right class="feature-list">
-    <div class="card" *ngFor="let item of cards">
+    <div class="card" *ngFor="let item of features">
       {{ item }}
     </div>
   </div>

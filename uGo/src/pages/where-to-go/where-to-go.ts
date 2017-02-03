@@ -20,7 +20,7 @@ export class WhereToGoPage {
       title: 'asdsads'
     }
   ];
-  cards = [
+  features = [
     'aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff'
   ]
 
