@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
+
+declare var google;
 
 @Component({
   selector: 'page-map',
@@ -8,8 +10,35 @@ import { NavController } from 'ionic-angular';
 })
 export class MapPage {
 
+  @ViewChild('map') mapElement: ElementRef;
+  map: any;
+
+  ionViewDidLoad() {
+    this.loadMap();
+  }
+
   constructor(public navCtrl: NavController) {
 
+  }
+
+  loadMap() {
+
+    console.log('Load Maps...');
+
+    let latLng = new google.maps.LatLng(-34.9290, 138.6010);
+
+    let mapOptions = {
+      center: latLng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+
+    console.log(this.mapElement.nativeElement);
+
+    this.map = new google.maps.Map(this.mapElement.nativeElement, {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
   }
 
 }
