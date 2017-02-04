@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { AddMyTripPage } from '../add-my-trip/add-my-trip';
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -12,4 +12,7 @@ export class MyTripPage {
 
   }
 
+  openAddMyTrip() {
+  	 this.navCtrl.push(AddMyTripPage);
+  }
 }
