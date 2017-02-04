@@ -6,6 +6,7 @@ import { MapPage } from '../pages/map/map';
 import { WhereToGoPage } from '../pages/where-to-go/where-to-go';
 import { WatchlistPage } from '../pages/watchlist/watchlist';
 import { PlaceDetailsPage } from '../pages/place-details/place-details';
+import { CategoriesModalPage } from '../pages/categories-modal/categories-modal';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     WhereToGoPage,
     WatchlistPage,
     PlaceDetailsPage,
+    CategoriesModalPage,
     TabsPage
   ],
   imports: [
@@ -29,6 +31,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     WhereToGoPage,
     WatchlistPage,
     PlaceDetailsPage,
+    CategoriesModalPage,
     TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]

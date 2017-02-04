@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
 import { PlaceDetailsPage } from '../place-details/place-details';
+import { CategoriesModalPage } from '../categories-modal/categories-modal';
 
 @Component({
   selector: 'page-where-to-go',
@@ -42,7 +43,7 @@ export class WhereToGoPage {
     }
   ];
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
 
   }
 
@@ -52,6 +53,11 @@ export class WhereToGoPage {
 
   openPlaceDetails(item) {
     this.navCtrl.push(PlaceDetailsPage, { item: item });
+  }
+
+  viewCategories() {
+    let modal = this.modalCtrl.create(CategoriesModalPage);
+    modal.present();
   }
 
 }
