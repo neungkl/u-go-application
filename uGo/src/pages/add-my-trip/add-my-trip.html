@@ -4,30 +4,31 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding style="background-color:black">
+<ion-content padding style="background-color:#565656;">
 
+  <ion-label style="color:white;">Select Province</ion-label>
   <ion-list>
-  <ion-item>
-    <ion-label>Province</ion-label>
-    <ion-select [(ngModel)]="gaming">
-      <ion-option value="aa">Hua Hin</ion-option>
-      <ion-option value="bb">Amsterdam</ion-option>
-      <ion-option value="cc">San Fracisco</ion-option>
-      <ion-option value="dd">Madison</ion-option>
-      <ion-option value="nes">Sao Paulo</ion-option>
-    </ion-select>
-  </ion-item>
-</ion-list>
-<ion-list>
+    <ion-item>
+      <ion-label>Province</ion-label>
+      <ion-select [(ngModel)]="gaming">
+        <ion-option value="aa">Hua Hin</ion-option>
+        <ion-option value="bb">Amsterdam</ion-option>
+        <ion-option value="cc">San Fracisco</ion-option>
+        <ion-option value="dd">Madison</ion-option>
+        <ion-option value="nes">Sao Paulo</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
 
-  <ion-item>
-    <ion-label floating>how many days?</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-</ion-list>
+    <ion-item>
+      <ion-label floating>how many days?</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-list>
 
-<div padding>
-  <button ion-button block>Go</button>
-</div>
+  <div padding>
+    <button ion-button block>Go</button>
+  </div>
 
 </ion-content>

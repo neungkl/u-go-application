@@ -6,6 +6,7 @@ import { WatchlistPage } from '../watchlist/watchlist';
 import { MyTripPage } from '../my-trip/my-trip';
 
 @Component({
+  selector: 'tabs',
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
