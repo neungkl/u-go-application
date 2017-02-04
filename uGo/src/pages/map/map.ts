@@ -51,7 +51,7 @@ export class MapPage {
         map: this.map,
         icon: {
           url: 'assets/img/pin-grey.png',
-          scaledSize: new google.maps.Size(18, 25)
+          scaledSize: new google.maps.Size(18, 23)
         }
       });
 
@@ -115,7 +115,7 @@ export class MapPage {
       geodesic: true,
       strokeColor: '#ffbc00',
       strokeOpacity: 1.0,
-      strokeWeight: 2
+      strokeWeight: 3
     });
 
     // console.log(centerPos);

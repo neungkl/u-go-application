@@ -6,38 +6,41 @@
 
 <ion-content padding>
 
-  
   <div text-left margin-bottom>
     <!--<button ion-button round (click)="viewCategories()">View by Categories</button>-->
-    <button ion-button color="dark" round (click)="openAddMyTrip()">+ add my trip</button>
+    <button ion-button color="dark" round small (click)="openAddMyTrip()" style="background-color: #FFBC00; color:black;">+ add my trip</button>
   </div>
-  
+
   <div class="card-background-page">
 
-  <ion-card>
-    <img src="assets/img/hua-hin.jpg"/>
-    <div class="card-title">São Paulo</div>
-    <div class="card-subtitle">
-    <button ion-button color="dark" round (cliiick)="viewCategories()">+ add my trip</button></div>
-  </ion-card>
+    <ion-card>
+      <img src="assets/img/hua-hin.jpg" />
+      <div class="card-title">Amsterdam</div>
+      <div class="card-subtitle">Thailand</div>
+      <ion-card-content>
+          <button ion-button color="dark" round small (cliiick)="viewCategories()">Day 1</button>
+          <button ion-button color="dark" round small (cliiick)="viewCategories()">Day 2</button>
+          <button ion-button color="dark" round small (cliiick)="viewCategories()">Day 3</button>
+      </ion-card-content>
+    </ion-card>
 
-  <ion-card>
-    <img src="assets/img/hua-hin.jpg"/>
-    <div class="card-title">Amsterdam</div>
-    <div class="card-subtitle">64 Listings</div>
-  </ion-card>
+    <ion-card>
+      <img src="assets/img/hua-hin.jpg" />
+      <div class="card-title">Amsterdam</div>
+      <div class="card-subtitle">64 Listings</div>
+    </ion-card>
 
-  <ion-card>
-    <img src="assets/img/hua-hin.jpg"/>
-    <div class="card-title">San Francisco</div>
-    <div class="card-subtitle">72 Listings</div>
-  </ion-card>
+    <ion-card>
+      <img src="assets/img/hua-hin.jpg" />
+      <div class="card-title">San Francisco</div>
+      <div class="card-subtitle">72 Listings</div>
+    </ion-card>
 
-  <ion-card>
-    <img src="assets/img/hua-hin.jpg"/>
-    <div class="card-title">Madison</div>
-    <div class="card-subtitle">28 Listings</div>
-  </ion-card>
+    <ion-card>
+      <img src="assets/img/hua-hin.jpg" />
+      <div class="card-title">Madison</div>
+      <div class="card-subtitle">28 Listings</div>
+    </ion-card>
 
   </div>
 </ion-content>
