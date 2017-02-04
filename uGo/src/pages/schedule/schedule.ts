@@ -5,50 +5,41 @@ import { PlaceDetailsPage } from '../place-details/place-details';
 import { CategoriesModalPage } from '../categories-modal/categories-modal';
 
 @Component({
-  selector: 'page-where-to-go',
-  templateUrl: 'where-to-go.html'
+  selector: 'page-schedule',
+  templateUrl: 'schedule.html'
 })
-export class WhereToGoPage {
+export class SchedulePage {
 
   category = '';
   seachResults = [
     {
-      title: 'Bangkok',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      title: 'Bangkok'
     },
     {
-      title: 'Korat',
-      description: 'Sed volutpat posuere ante, a viverra mi faucibus in.'
+      title: 'Korat'
     },
     {
-      title: 'asdsads',
-      description: 'Cras facilisis lacinia dignissim. Nunc tempor purus dignissim lacus tincidunt ultrices.'
+      title: 'asdsads'
     }
   ];
   features = [
     {
-      title: 'aaaa',
-      description: 'asdasdasdsao'
+      title: 'aaaa'
     },
     {
-      title: 'bbb',
-      description: 'test'
+      title: 'bbb'
     },
     {
-      title: 'ccc',
-      description: 'kosate'
+      title: 'ccc'
     },
     {
-      title: 'dddd',
-      description: 'kosako'
+      title: 'dddd'
     },
     {
-      title: 'eee',
-      description: 'ksasas'
+      title: 'eee'
     },
     {
-      title: 'fff',
-      description: 'kosate'
+      title: 'fff'
     }
   ];
 

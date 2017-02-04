@@ -4,6 +4,7 @@ import { MapPage } from '../map/map';
 import { WhereToGoPage } from '../where-to-go/where-to-go';
 import { WatchlistPage } from '../watchlist/watchlist';
 import { MyTripPage } from '../my-trip/my-trip';
+import { SchedulePage } from '../schedule/schedule';
 
 @Component({
   selector: 'tabs',
@@ -16,6 +17,7 @@ export class TabsPage {
   myTrip: any = MyTripPage;
   whereToGo: any = WhereToGoPage;
   watchlist: any = WatchlistPage;
+  schedule: any = SchedulePage;
 
   constructor() {
 

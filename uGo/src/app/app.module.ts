@@ -8,6 +8,7 @@ import { PlaceDetailsPage } from '../pages/place-details/place-details';
 import { CategoriesModalPage } from '../pages/categories-modal/categories-modal';
 import { MyTripPage } from '../pages/my-trip/my-trip';
 import { TabsPage } from '../pages/tabs/tabs';
+import { SchedulePage } from '../pages/schedule/schedule';
 import { AddMyTripPage } from '../pages/add-my-trip/add-my-trip';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { AddMyTripPage } from '../pages/add-my-trip/add-my-trip';
     CategoriesModalPage,
     MyTripPage,
     TabsPage,
+    SchedulePage,
     AddMyTripPage
   ],
   imports: [
@@ -35,6 +37,7 @@ import { AddMyTripPage } from '../pages/add-my-trip/add-my-trip';
     CategoriesModalPage,
     MyTripPage,
     TabsPage,
+    SchedulePage,
     AddMyTripPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
