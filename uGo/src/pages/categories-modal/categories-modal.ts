@@ -9,7 +9,8 @@ import { NavParams, ViewController, NavController } from 'ionic-angular';
 export class CategoriesModalPage {
 
   categories = [
-    'วัด', 'ทะเล', 'ภูเขา', 'น้ำตก', 'ภา'
+    'Restaurant', 'Recreation', 'Nature', 'Residence', 'Agriculture',
+    'Education',
   ]
 
   constructor(

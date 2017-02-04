@@ -23,8 +23,9 @@ export class WhereToGoPage {
 
   getPlaces() {
     return this.placeService.getPlaces().filter(function(val) {
-      return val.title.toLowerCase().indexOf(this.searchString) !== -1 ||
-        val.description.toLowerCase().indexOf(this.searchString) !== -1;
+      return (val.Name.toLowerCase().indexOf(this.searchString) !== -1 ||
+        val.Location.toLowerCase().indexOf(this.searchString) !== -1) &&
+        (this.category === '' || val.Category.toLowerCase() === this.category);
     }.bind(this));
   }
 
@@ -33,7 +34,7 @@ export class WhereToGoPage {
   }
 
   changeCategory(cat) {
-    this.category = cat;
+    this.category = cat.toLowerCase();
   }
 
   isStar(item) {

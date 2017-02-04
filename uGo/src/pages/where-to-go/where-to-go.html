@@ -20,8 +20,8 @@
           <img src="assets/img/placeholder-300x300.png">
         </ion-thumbnail>
         <span (click)="openPlaceDetails(item)">
-          <h2>{{ item.title }}</h2>
-          <p>{{ item.description }}</p>
+          <h2>{{ item.Name }}</h2>
+          <p>{{ item.Location }}</p>
         </span>
         <ion-note item-right><ion-icon name="{{ isStar(item) ? 'star' : 'star-outline' }}" (click)="starToggle(item)"></ion-icon></ion-note>
       </ion-item>
@@ -34,7 +34,7 @@
   <ion-scroll padding-left padding-right scrollX="true" class="feature-list">
     <ion-row>
       <ion-col *ngFor="let item of placeService.getRecommend()" width-50 classs="card">
-        <div class="card" (click)="openPlaceDetails(item)">{{ item.title }}</div>
+        <div class="card" (click)="openPlaceDetails(item)">{{ item.Name }}</div>
       </ion-col>
     </ion-row>
   </ion-scroll>

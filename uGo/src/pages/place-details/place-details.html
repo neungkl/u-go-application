@@ -12,8 +12,9 @@
   <div padding>
     <ion-grid>
       <ion-row>
-        <ion-col width-80>
-          <h3>{{ item.title }}</h3>
+        <ion-col width-80 no-padding>
+          <h3 style="padding:0px; margin:0px;">{{ item.Name }}</h3>
+          <div>{{ item.Location }}</div>
         </ion-col>
         <ion-col width-20 text-right>
           <ion-icon style="font-size:25px;"
@@ -24,15 +25,16 @@
       </ion-row>
     </ion-grid>
 
-    <div>{{ item.description }}</div>
+    <ion-badge>{{ item.Category }}</ion-badge>
+    <br>
+
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro quibusdam, animi earum! Asperiores accusantium rerum perspiciatis quidem harum, tempore molestiae illo? Dolorem eum consequuntur eaque animi sunt, ipsum voluptates autem!
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius reprehenderit, corporis placeat totam molestias soluta iure quae accusantium, ducimus debitis aspernatur quaerat repellendus eos. Dignissimos earum quod voluptas dicta id.
     </p>
 
-    <ion-label>Available Time : 10.00 - 12.00</ion-label>
-    <ion-label>Website : 10.00 - 12.00</ion-label>
-    <ion-label item-left>Tel : 012312</ion-label>
-    <ion-label item-right>Price : $1000</ion-label>
+    <ion-label>Available Time : {{ item.Open }} - {{ item.Close }}</ion-label>
+    <ion-label>Website : {{ item.Website }}</ion-label>
+    <ion-label item-left>Tel : {{ item.Tel }}</ion-label>
 
   </div>
   <!-- <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}"></ion-icon> -->

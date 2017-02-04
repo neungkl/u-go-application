@@ -1,57 +1,14 @@
+import Data from './place.data.ts';
+
 export class PlaceService {
 
-  places: Array<any> = [
-    {
-      title: 'Bangkok',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-    },
-    {
-      title: 'Korat',
-      description: 'Sed volutpat posuere ante, a viverra mi faucibus in.'
-    },
-    {
-      title: 'asdsads',
-      description: 'Cras facilisis lacinia dignissim. Nunc tempor purus dignissim lacus tincidunt ultrices.'
-    },
-    {
-      title: 'aaaa',
-      description: 'asdasdasdsao'
-    },
-    {
-      title: 'bbb',
-      description: 'test'
-    },
-    {
-      title: 'ccc',
-      description: 'kosate'
-    },
-    {
-      title: 'dddd',
-      description: 'kosako'
-    },
-    {
-      title: 'eee',
-      description: 'ksasas'
-    },
-    {
-      title: 'fff',
-      description: 'kosate'
-    },
-    {
-      title: 'eiei',
-      description: 'askdoasd'
-    },
-    {
-      title: 'lorem',
-      description: 'tem tem tem'
-    }
-  ];
+  places: Array<any> = Data;
 
   constructor() {
     for(let i=0; i<this.places.length; i++) {
       this.places[i].id = i;
       this.places[i].star = false;
-      this.places[i].recommend = (i > 6 ? true : false);
+      this.places[i].recommend = (i > this.places.length * 0.7 ? true : false);
     }
     for(let i=0; i<4; i++) {
       this.places[Math.floor(Math.random() * this.places.length)].star = true;

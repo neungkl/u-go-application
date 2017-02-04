@@ -8,6 +8,13 @@ import { NavController } from 'ionic-angular';
 })
 export class MyTripPage {
 
+  trips = [
+    {
+      name: 'Hua Hin',
+      days: [1,2,3]
+    }
+  ]
+
   constructor(public navCtrl: NavController) {
 
   }
