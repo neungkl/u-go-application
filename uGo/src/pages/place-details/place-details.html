@@ -10,7 +10,20 @@
   <div class="image-thumbnail" [ngStyle]="{'background-image': 'url(' + 'assets/img/placeholder-300x300.png' + ')' }">
   </div>
   <div padding>
-    <h3>{{ item.title }}</h3>
+    <ion-grid>
+      <ion-row>
+        <ion-col width-80>
+          <h3>{{ item.title }}</h3>
+        </ion-col>
+        <ion-col width-20>
+          <ion-icon style="font-size:25px; text-align: right;" item-right
+            (click)="placeService.toggleWatchlist(item.id)"
+            name="{{ placeService.isInWatchlist(item.id) ? 'star' : 'star-outline' }}">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
     <div>{{ item.description }}</div>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro quibusdam, animi earum! Asperiores accusantium rerum perspiciatis quidem harum, tempore molestiae illo? Dolorem eum consequuntur eaque animi sunt, ipsum voluptates autem!

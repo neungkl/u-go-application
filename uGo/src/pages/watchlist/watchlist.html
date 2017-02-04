@@ -16,12 +16,13 @@
 <ion-content>
   <div padding>Watchlist</div>
   <ion-list>
-    <ion-item *ngFor="let item of watchlist" (click)="openPlaceDetails(item)">
+    <ion-label text-center *ngIf="placeService.getWatchlist().length === 0">Please add place to watchlist.</ion-label>
+    <ion-item *ngFor="let item of placeService.getWatchlist()" (click)="openPlaceDetails(item)">
       <ion-thumbnail item-left>
         <img src="assets/img/placeholder-300x300.png">
       </ion-thumbnail>
-      <h2>{{ item }}</h2>
-      <p>Lorem ipsum dolor sit amet</p>
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.description }}</p>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ModalController, NavController } from 'ionic-angular';
 import { PlaceDetailsPage } from '../place-details/place-details';
 import { CategoriesModalPage } from '../categories-modal/categories-modal';
+import { PlaceService } from '../../services/place.service';
 
 @Component({
   selector: 'page-where-to-go',
@@ -11,49 +12,8 @@ import { CategoriesModalPage } from '../categories-modal/categories-modal';
 export class WhereToGoPage {
 
   category = '';
-  seachResults = [
-    {
-      title: 'Bangkok',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-    },
-    {
-      title: 'Korat',
-      description: 'Sed volutpat posuere ante, a viverra mi faucibus in.'
-    },
-    {
-      title: 'asdsads',
-      description: 'Cras facilisis lacinia dignissim. Nunc tempor purus dignissim lacus tincidunt ultrices.'
-    }
-  ];
-  features = [
-    {
-      title: 'aaaa',
-      description: 'asdasdasdsao'
-    },
-    {
-      title: 'bbb',
-      description: 'test'
-    },
-    {
-      title: 'ccc',
-      description: 'kosate'
-    },
-    {
-      title: 'dddd',
-      description: 'kosako'
-    },
-    {
-      title: 'eee',
-      description: 'ksasas'
-    },
-    {
-      title: 'fff',
-      description: 'kosate'
-    }
-  ];
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
-
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public placeService: PlaceService) {
   }
 
   searchInput(evt) {
@@ -66,6 +26,14 @@ export class WhereToGoPage {
 
   changeCategory(cat) {
     this.category = cat;
+  }
+
+  isStar(item) {
+    return this.placeService.isInWatchlist(item.id);
+  }
+
+  starToggle(item) {
+    this.placeService.toggleWatchlist(item.id);
   }
 
   viewCategories() {

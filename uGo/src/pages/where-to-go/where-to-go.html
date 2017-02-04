@@ -15,12 +15,15 @@
   <!-- Search Result List -->
   <div class="result-list">
     <ion-list>
-      <ion-item *ngFor="let item of seachResults" (click)="openPlaceDetails(item)">
-        <ion-thumbnail item-left>
+      <ion-item *ngFor="let item of placeService.getPlaces()" >
+        <ion-thumbnail item-left (click)="openPlaceDetails(item)">
           <img src="assets/img/placeholder-300x300.png">
         </ion-thumbnail>
-        <h2>{{ item.title }}</h2>
-        <p>{{ item.description }}</p>
+        <span (click)="openPlaceDetails(item)">
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.description }}</p>
+        </span>
+        <ion-note item-right><ion-icon name="{{ isStar(item) ? 'star' : 'star-outline' }}" (click)="starToggle(item)"></ion-icon></ion-note>
       </ion-item>
     </ion-list>
   </div>
@@ -30,7 +33,7 @@
   <ion-label padding-left style="margin-top: 5px; margin-bottom: 5px;">Recommend</ion-label>
   <ion-scroll padding-left padding-right scrollX="true" class="feature-list">
     <ion-row>
-      <ion-col *ngFor="let item of features" width-50 classs="card">
+      <ion-col *ngFor="let item of placeService.getRecommend()" width-50 classs="card">
         <div class="card" (click)="openPlaceDetails(item)">{{ item.title }}</div>
       </ion-col>
     </ion-row>
