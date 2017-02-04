@@ -48,7 +48,11 @@ export class MapPage {
 
       var marker = new google.maps.Marker({
         position: curLatLng,
-        map: this.map
+        map: this.map,
+        icon: {
+          url: 'assets/img/pin-grey.png',
+          scaledSize: new google.maps.Size(18, 25)
+        }
       });
 
       this._latLngList.push(curLatLng);
@@ -72,12 +76,14 @@ export class MapPage {
 
   calculateShortestPath() {
 
+    let centerPos = null;
     let prevList: Array<number> = [];
     let lineSequence = [];
     let prevNode: number = Math.floor(Math.random() * this._markerList.length);
 
     prevList.push(prevNode);
     lineSequence.push(this._latLngList[prevNode]);
+    centerPos = this._latLngList[prevNode];
 
     for(let connect = 0; connect < 5; connect++) {
 
@@ -104,17 +110,17 @@ export class MapPage {
       }
     }
 
-    console.log(lineSequence);
-
     var recommendPath = new google.maps.Polyline({
       path: lineSequence,
       geodesic: true,
-      strokeColor: '#FF0000',
+      strokeColor: '#ffbc00',
       strokeOpacity: 1.0,
       strokeWeight: 2
     });
 
+    // console.log(centerPos);
     recommendPath.setMap(this.map);
+    this.map.setCenter(centerPos);
 
   }
 
