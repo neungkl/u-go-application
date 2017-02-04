@@ -15,11 +15,14 @@
 
   <!-- Search Result List -->
   <div class="result-list">
-    <ion-card *ngFor="let item of seachResults">
-      <ion-card-content>
-        {{ item.title }}
-      </ion-card-content>
-    </ion-card>
+    <ion-list>
+      <ion-item *ngFor="let item of seachResults" (click)="openPlaceDetails(item)">
+        <ion-thumbnail item-left>
+          <img src="assets/img/placeholder-300x300.png">
+        </ion-thumbnail>
+        <h2>{{ item.title }}</h2>
+      </ion-item>
+    </ion-list>
   </div>
 
   <!-- Feature List -->

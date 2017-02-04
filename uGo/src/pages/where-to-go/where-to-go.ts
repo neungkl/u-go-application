@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
+import { PlaceDetailsPage } from '../place-details/place-details';
 
 @Component({
   selector: 'page-where-to-go',
@@ -30,6 +31,10 @@ export class WhereToGoPage {
 
   searchInput(evt) {
     console.log(evt.target.value);
+  }
+
+  openPlaceDetails(item) {
+    this.navCtrl.push(PlaceDetailsPage, { item: item });
   }
 
 }

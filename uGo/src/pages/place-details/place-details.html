@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{ item.title }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="image-thumbnail" [ngStyle]="{'background-image': 'url(' + 'assets/img/placeholder-300x300.png' + ')' }">
+  </div>
+  <div padding>
+    <h3>{{ item.title }}</h3>
+    <div>this is a location asdkaso</div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro quibusdam, animi earum! Asperiores accusantium rerum perspiciatis quidem harum, tempore molestiae illo? Dolorem eum consequuntur eaque animi sunt, ipsum voluptates autem!
+    </p>
+
+    <ion-label>Available Time : 10.00 - 12.00</ion-label>
+    <ion-label>Website : 10.00 - 12.00</ion-label>
+    <ion-label item-left>Tel : 012312</ion-label>
+    <ion-label item-right>Price : $1000</ion-label>
+
+  </div>
+  <!-- <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}"></ion-icon> -->
+</ion-content>
