@@ -10,7 +10,7 @@ import { CategoriesModalPage } from '../categories-modal/categories-modal';
 })
 export class WhereToGoPage {
 
-  categories = ['eiei', 'test', 'aaa'];
+  category = '';
   seachResults = [
     {
       title: 'Bangkok'
@@ -55,8 +55,14 @@ export class WhereToGoPage {
     this.navCtrl.push(PlaceDetailsPage, { item: item });
   }
 
+  changeCategory(cat) {
+    this.category = cat;
+  }
+
   viewCategories() {
-    let modal = this.modalCtrl.create(CategoriesModalPage);
+    let modal = this.modalCtrl.create(CategoriesModalPage, {
+      changeCategory: this.changeCategory.bind(this)
+    });
     modal.present();
   }
 

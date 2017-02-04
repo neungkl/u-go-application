@@ -7,9 +7,8 @@
 <ion-content>
   <ion-searchbar (ionInput)="searchInput($event)"></ion-searchbar>
   <div padding>
-    <ion-badge classs="category">Add Categories</ion-badge>
-    <div style="display: inline-block;">
-      <ion-badge *ngFor="let item of categories" class="category">{{ item }}</ion-badge>
+    <div style="display: inline-block;" *ngIf="category.length">
+      <ion-badge class="category">{{ category }}</ion-badge>
     </div>
   </div>
 

@@ -22,4 +22,9 @@ export class CategoriesModalPage {
   dismiss() {
     this.viewCtrl.dismiss();
   }
+
+  choose(category) {
+    this.params.get('changeCategory')(category);
+    this.dismiss();
+  }
 }

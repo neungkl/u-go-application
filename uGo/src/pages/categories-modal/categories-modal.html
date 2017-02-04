@@ -19,7 +19,7 @@
     <ion-grid>
       <ion-row>
         <ion-col text-center width-50 *ngFor="let item of categories">
-          <button ion-button no-margin full (click)="dismiss()">
+          <button ion-button no-margin full (click)="choose(item)">
             {{ item }}
           </button>
         </ion-col>
