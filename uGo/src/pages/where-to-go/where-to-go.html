@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Where To Go</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="searchInput($event)"></ion-searchbar>
+  <div padding>
+    <div style="display: inline-block;" *ngIf="category.length">
+      <ion-badge class="category">{{ category }}</ion-badge>
+    </div>
+  </div>
+
+  <!-- Search Result List -->
+  <div class="result-list">
+    <ion-list>
+      <ion-item *ngFor="let item of seachResults" (click)="openPlaceDetails(item)">
+        <ion-thumbnail item-left>
+          <img src="assets/img/placeholder-300x300.png">
+        </ion-thumbnail>
+        <h2>{{ item.title }}</h2>
+        <p>Lorem ipsum dolor sit amet</p>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- Feature List -->
+
+  <ion-label padding-left style="margin-top: 5px; margin-bottom: 5px;">Recommend</ion-label>
+  <ion-scroll padding-left padding-right scrollX="true" class="feature-list">
+    <ion-row>
+      <ion-col *ngFor="let item of features" width-50 classs="card">
+        <div class="card" (click)="openPlaceDetails(item)">{{ item.title }}</div>
+      </ion-col>
+    </ion-row>
+  </ion-scroll>
+
+  <div text-center margin-bottom>
+    <button ion-button round (click)="viewCategories()">View by Categories</button>
+  </div>
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let item of items">
+      {{ item }}
+    </ion-item>
+  </ion-list> -->
+</ion-content>

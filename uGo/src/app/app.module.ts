@@ -1,19 +1,25 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
+import { WhereToGoPage } from '../pages/where-to-go/where-to-go';
+import { WatchlistPage } from '../pages/watchlist/watchlist';
+import { PlaceDetailsPage } from '../pages/place-details/place-details';
+import { CategoriesModalPage } from '../pages/categories-modal/categories-modal';
+import { MyTripPage } from '../pages/my-trip/my-trip';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
     MapPage,
+    WhereToGoPage,
+    WatchlistPage,
+    PlaceDetailsPage,
+    CategoriesModalPage,
+    MyTripPage,
     TabsPage
   ],
   imports: [
@@ -22,10 +28,13 @@ import { TabsPage } from '../pages/tabs/tabs';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
     MapPage,
+    WhereToGoPage,
+    WatchlistPage,
+    PlaceDetailsPage,
+    CategoriesModalPage,
+    MyTripPage,
     TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
