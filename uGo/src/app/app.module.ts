@@ -1,7 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
 import { WhereToGoPage } from '../pages/where-to-go/where-to-go';
 import { WatchlistPage } from '../pages/watchlist/watchlist';
@@ -14,7 +13,6 @@ import { AddMyTripPage } from '../pages/add-my-trip/add-my-trip';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     MapPage,
     WhereToGoPage,
     WatchlistPage,
@@ -30,7 +28,6 @@ import { AddMyTripPage } from '../pages/add-my-trip/add-my-trip';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     MapPage,
     WhereToGoPage,
     WatchlistPage,
