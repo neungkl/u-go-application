@@ -15,8 +15,8 @@
         <ion-col width-80>
           <h3>{{ item.title }}</h3>
         </ion-col>
-        <ion-col width-20>
-          <ion-icon style="font-size:25px; text-align: right;" item-right
+        <ion-col width-20 text-right>
+          <ion-icon style="font-size:25px;"
             (click)="placeService.toggleWatchlist(item.id)"
             name="{{ placeService.isInWatchlist(item.id) ? 'star' : 'star-outline' }}">
           </ion-icon>
