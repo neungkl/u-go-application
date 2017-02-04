@@ -22,8 +22,25 @@ export class WhereToGoPage {
     }
   ];
   features = [
-    'aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff'
-  ]
+    {
+      title: 'aaaa'
+    },
+    {
+      title: 'bbb'
+    },
+    {
+      title: 'ccc'
+    },
+    {
+      title: 'dddd'
+    },
+    {
+      title: 'eee'
+    },
+    {
+      title: 'fff'
+    }
+  ];
 
   constructor(public navCtrl: NavController) {
 

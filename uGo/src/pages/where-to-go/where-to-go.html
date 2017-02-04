@@ -21,16 +21,24 @@
           <img src="assets/img/placeholder-300x300.png">
         </ion-thumbnail>
         <h2>{{ item.title }}</h2>
+        <p>Lorem ipsum dolor sit amet</p>
       </ion-item>
     </ion-list>
   </div>
 
   <!-- Feature List -->
 
-  <div padding-left padding-right class="feature-list">
-    <div class="card" *ngFor="let item of features">
-      {{ item }}
-    </div>
+  <ion-label padding-left style="margin-top: 5px; margin-bottom: 5px;">Recommend</ion-label>
+  <ion-scroll padding-left padding-right scrollX="true" class="feature-list">
+    <ion-row>
+      <ion-col *ngFor="let item of features" width-50 classs="card">
+        <div class="card" (click)="openPlaceDetails(item)">{{ item.title }}</div>
+      </ion-col>
+    </ion-row>
+  </ion-scroll>
+
+  <div text-center margin-bottom>
+    <button ion-button round>View by Categories</button>
   </div>
 
   <!-- <ion-list>

@@ -14,13 +14,14 @@
 
 
 <ion-content>
-  <ion-label padding>Watchlist</ion-label>
+  <div padding>Watchlist</div>
   <ion-list>
     <ion-item *ngFor="let item of watchlist" (click)="openPlaceDetails(item)">
       <ion-thumbnail item-left>
         <img src="assets/img/placeholder-300x300.png">
       </ion-thumbnail>
       <h2>{{ item }}</h2>
+      <p>Lorem ipsum dolor sit amet</p>
     </ion-item>
   </ion-list>
 </ion-content>

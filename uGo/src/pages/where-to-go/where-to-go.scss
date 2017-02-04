@@ -9,12 +9,17 @@ page-where-to-go {
   }
 
   .feature-list {
-    overflow-y: hidden;
-    display: inline-block;
+    height: 100px;
 
     .card {
-      display: inline-block;
+      width: 100%;
+      height: 80px;
+      padding-top: 30px;
+      text-align: center;
+      background: #eee;
+      border-radius: 5px;
       margin-right: 7px;
     }
   }
+
 }
