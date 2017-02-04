@@ -10,20 +10,26 @@
   <ion-list>
     <ion-item>
       <ion-label>Province</ion-label>
-      <ion-select [(ngModel)]="gaming">
-        <ion-option value="aa">Hua Hin</ion-option>
-        <ion-option value="bb">Amsterdam</ion-option>
-        <ion-option value="cc">San Fracisco</ion-option>
-        <ion-option value="dd">Madison</ion-option>
-        <ion-option value="nes">Sao Paulo</ion-option>
+      <ion-select [(ngModel)]="location">
+        <ion-option value="Hua Hin">Hua Hin</ion-option>
+        <ion-option value="Amsterdam">Amsterdam</ion-option>
+        <ion-option value="San Fracisco">San Fracisco</ion-option>
+        <ion-option value="Madison">Madison</ion-option>
+        <ion-option value="Sao Paulo">Sao Paulo</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
-  <ion-list>
 
+  <ion-list>
     <ion-item>
-      <ion-label floating>how many days?</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label>How many days ?</ion-label>
+      <ion-select [(ngModel)]="days">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+      </ion-select>
     </ion-item>
   </ion-list>
 

@@ -15,7 +15,7 @@
   <!-- Search Result List -->
   <div class="result-list">
     <ion-list>
-      <ion-item *ngFor="let item of placeService.getPlaces()" >
+      <ion-item *ngFor="let item of getPlaces()" >
         <ion-thumbnail item-left (click)="openPlaceDetails(item)">
           <img src="assets/img/placeholder-300x300.png">
         </ion-thumbnail>

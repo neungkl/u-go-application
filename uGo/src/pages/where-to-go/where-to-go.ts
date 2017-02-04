@@ -12,12 +12,20 @@ import { PlaceService } from '../../services/place.service';
 export class WhereToGoPage {
 
   category = '';
+  searchString = '';
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public placeService: PlaceService) {
   }
 
   searchInput(evt) {
-    console.log(evt.target.value);
+    this.searchString = evt.target.value.toLowerCase();
+  }
+
+  getPlaces() {
+    return this.placeService.getPlaces().filter(function(val) {
+      return val.title.toLowerCase().indexOf(this.searchString) !== -1 ||
+        val.description.toLowerCase().indexOf(this.searchString) !== -1;
+    }.bind(this));
   }
 
   openPlaceDetails(item) {
