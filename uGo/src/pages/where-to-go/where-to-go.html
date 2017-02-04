@@ -15,6 +15,9 @@
   <!-- Search Result List -->
   <div class="result-list">
     <ion-list>
+      <ion-item *ngIf="getPlaces().length === 0">
+        No search result.
+      </ion-item>
       <ion-item *ngFor="let item of getPlaces()" >
         <ion-thumbnail item-left (click)="openPlaceDetails(item)">
           <img src="assets/img/placeholder-300x300.png">

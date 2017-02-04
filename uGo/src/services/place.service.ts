@@ -5,10 +5,17 @@ export class PlaceService {
   places: Array<any> = Data;
 
   constructor() {
+    for(let i=0; i<400; i++) {
+      let a = Math.floor(Math.random() * this.places.length);
+      let b = Math.floor(Math.random() * this.places.length);
+      let tmp = this.places[a];
+      this.places[a] = this.places[b];
+      this.places[b] = tmp;
+    }
     for(let i=0; i<this.places.length; i++) {
       this.places[i].id = i;
       this.places[i].star = false;
-      this.places[i].recommend = (i > this.places.length * 0.7 ? true : false);
+      this.places[i].recommend = (i > this.places.length * 0.85 ? true : false);
     }
     for(let i=0; i<4; i++) {
       this.places[Math.floor(Math.random() * this.places.length)].star = true;

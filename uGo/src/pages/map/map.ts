@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
+import { PlaceService } from '../../services/place.service';
 
 declare var google;
 
@@ -15,12 +16,14 @@ export class MapPage {
   _markerList: Array<any>;
   _latLngList: Array<any>;
   _randomRange: number = 0.05;
+  ans;
+  best: number = Infinity;
 
   ionViewDidLoad() {
     this.loadMap();
   }
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public placeService: PlaceService) {
     this._markerList = [];
     this._latLngList = [];
   }
@@ -40,19 +43,44 @@ export class MapPage {
 
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
-    for(let i=0; i<20; i++) {
-      var curLatLng = {
-        lat: latLng.lat + (Math.random() - .5) * this._randomRange,
-        lng: latLng.lng + (Math.random() - .5) * this._randomRange
+    let places = this.placeService.getPlaces();
+
+    for(let i=0; i<places.length; i++) {
+      // var curLatLng = {
+      //   lat: latLng.lat + (Math.random() - .5) * this._randomRange,
+      //   lng: latLng.lng + (Math.random() - .5) * this._randomRange
+      // };
+      let pos = places[i].Position.split(",");
+      let curLatLng = {
+        lat: parseFloat(pos[0]),
+        lng: parseFloat(pos[1]),
+        recommend: places[i].recommend
       };
 
-      var marker = new google.maps.Marker({
+      let icon = {
+        url: 'assets/img/pin-grey.png',
+        scaledSize: new google.maps.Size(15, 19)
+      };
+
+      if(places[i].recommend) {
+        icon = {
+          url: 'assets/img/pin-yellow.png',
+          scaledSize: new google.maps.Size(25, 32)
+        }
+      }
+
+      let marker = new google.maps.Marker({
         position: curLatLng,
         map: this.map,
-        icon: {
-          url: 'assets/img/pin-grey.png',
-          scaledSize: new google.maps.Size(18, 23)
-        }
+        icon: icon
+      });
+
+      let infowindow = new google.maps.InfoWindow({
+        content: 'สถานที่ : ' + places[i].Name
+      });
+
+      marker.addListener('click', function() {
+        infowindow.open(this.map, marker);
       });
 
       this._latLngList.push(curLatLng);
@@ -74,41 +102,62 @@ export class MapPage {
     return d * 1000; // meters
   }
 
-  calculateShortestPath() {
+  find(n,d,dist,ans) {
+    if(d >= 5) {
+      if(dist < this.best) {
+        this.ans = ans;
+        this.best = dist;
+      }
+      return ;
+    } else {
+      if(dist > this.best) return ;
+      let prev = ans[ans.length - 1];
 
-    let centerPos = null;
-    let prevList: Array<number> = [];
-    let lineSequence = [];
-    let prevNode: number = Math.floor(Math.random() * this._markerList.length);
+      let best = Infinity;
+      let best2 = Infinity;
+      let chooseI = -1;
+      let chooseI2 = -1;
+      for(let i=0; i<this._latLngList.length; i++) {
 
-    prevList.push(prevNode);
-    lineSequence.push(this._latLngList[prevNode]);
-    centerPos = this._latLngList[prevNode];
+        if(ans.indexOf(i) === -1) {
+          let latLng1 = this._latLngList[i];
+          let latLng2 = this._latLngList[prev];
+          let dd = this.measure(latLng1.lat, latLng1.lng, latLng2.lat, latLng2.lng);
 
-    for(let connect = 0; connect < 5; connect++) {
-
-      let latLng1 = this._latLngList[prevNode];
-      let dist: number = Infinity;
-      let nextNode: number = -1;
-
-      for(let i=0; i<this._markerList.length; i++) {
-        if(prevList.indexOf(i) === -1) {
-          let latLng2 = this._latLngList[i];
-          let curDist = this.measure(latLng1.lat, latLng1.lng, latLng2.lat, latLng2.lng)
-
-          if(curDist < dist) {
-            dist = curDist;
-            nextNode = i;
+          if(dd < best2 && this._latLngList[i].recommend) {
+            best2 = dd;
+            chooseI2 = i;
+          }
+          if(dd < best) {
+            best = dd;
+            chooseI = i;
           }
         }
       }
+      chooseI = chooseI2 === -1 ? chooseI : chooseI2;
+      ans[d] = chooseI;
+      this.find(chooseI,d + 1,dist + best,ans);
+    }
+  }
 
-      if(nextNode != -1) {
-        prevNode = nextNode;
-        prevList.push(prevNode);
-        lineSequence.push(this._latLngList[prevNode]);
+  calculateShortestPath() {
+
+    let lineSequence = [];
+
+    for(let i=0; i<this._latLngList.length; i++) {
+      if(this._latLngList[i].recommend) {
+        this.find(i,0,0,[i]);
       }
     }
+
+    for(let i=0; i<this.ans.length; i++){
+      lineSequence.push({
+        lat: this._latLngList[this.ans[i]].lat,
+        lng: this._latLngList[this.ans[i]].lng
+      });
+    }
+
+    console.log(lineSequence);
 
     var recommendPath = new google.maps.Polyline({
       path: lineSequence,
@@ -120,7 +169,7 @@ export class MapPage {
 
     // console.log(centerPos);
     recommendPath.setMap(this.map);
-    this.map.setCenter(centerPos);
+    this.map.setCenter(this._latLngList[this.ans[0]]);
 
   }
 
