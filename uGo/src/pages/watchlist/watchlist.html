@@ -19,7 +19,7 @@
     <ion-label text-center *ngIf="placeService.getWatchlist().length === 0">Please add place to watchlist.</ion-label>
     <ion-item *ngFor="let item of placeService.getWatchlist()" (click)="openPlaceDetails(item)">
       <ion-thumbnail item-left>
-        <img src="assets/img/placeholder-300x300.png">
+        <img src="{{ item.Category == 'Residence' ? 'assets/img/placeholder-300x300.png' : 'assets/place/' + item.Picture }} ">
       </ion-thumbnail>
       <h2>{{ item.Name }}</h2>
       <ion-badge>{{ item.Category }}</ion-badge>

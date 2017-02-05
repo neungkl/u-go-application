@@ -2,6 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 import { PlaceService } from '../../services/place.service';
+import { ScheduleService } from '../../services/schedule.service';
 
 declare var google;
 
@@ -17,13 +18,14 @@ export class MapPage {
   _latLngList: Array<any>;
   _randomRange: number = 0.05;
   ans;
+  places;
   best: number = Infinity;
 
   ionViewDidEnter() {
     this.loadMap();
   }
 
-  constructor(public navCtrl: NavController, public placeService: PlaceService) {
+  constructor(public navCtrl: NavController, public placeService: PlaceService, public scheduleService: ScheduleService) {
   }
 
   loadMap() {
@@ -45,6 +47,7 @@ export class MapPage {
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
     let places = this.placeService.getPlaces();
+    this.places = places;
 
     for(let i=0; i<places.length; i++) {
       // var curLatLng = {
@@ -156,12 +159,19 @@ export class MapPage {
       }
     }
 
+    let scheduleSeq = [];
+
     for(let i=0; i<this.ans.length; i++){
       lineSequence.push({
         lat: this._latLngList[this.ans[i]].lat,
         lng: this._latLngList[this.ans[i]].lng
       });
+      scheduleSeq.push(this.places[this.ans[i]]);
     }
+
+    console.log(this.ans);
+
+    this.scheduleService.setSchedule(scheduleSeq);
 
     var recommendPath = new google.maps.Polyline({
       path: lineSequence,

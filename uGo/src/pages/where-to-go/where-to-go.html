@@ -20,7 +20,7 @@
       </ion-item>
       <ion-item *ngFor="let item of getPlaces()" >
         <ion-thumbnail item-left (click)="openPlaceDetails(item)">
-          <img src="assets/img/placeholder-300x300.png">
+          <img src="{{ item.Category == 'Residence' ? 'assets/img/placeholder-300x300.png' : 'assets/place/' + item.Picture }} ">
         </ion-thumbnail>
         <span (click)="openPlaceDetails(item)">
           <h2>{{ item.Name }}</h2>
@@ -37,7 +37,7 @@
   <ion-scroll padding-left padding-right scrollX="true" class="feature-list">
     <ion-row>
       <ion-col *ngFor="let item of placeService.getRecommend()" width-50 classs="card">
-        <div class="card" (click)="openPlaceDetails(item)">{{ item.Name }}</div>
+        <div class="card" (click)="openPlaceDetails(item)" [ngStyle]="{'background-image': 'url(' + 'assets/place/' + item.Picture +')' }">{{ item.Name.substring(0,20) }}</div>
       </ion-col>
     </ion-row>
   </ion-scroll>

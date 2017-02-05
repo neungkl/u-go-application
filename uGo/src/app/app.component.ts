@@ -4,10 +4,11 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { PlaceService } from '../services/place.service';
+import { ScheduleService } from '../services/schedule.service'
 
 @Component({
   templateUrl: 'app.html',
-  providers: [ PlaceService ]
+  providers: [ PlaceService, ScheduleService ]
 })
 export class MyApp {
   rootPage = TabsPage;

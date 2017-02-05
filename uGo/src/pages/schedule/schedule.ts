@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { ModalController, NavController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
+import { ScheduleService } from '../../services/schedule.service';
 import { PlaceDetailsPage } from '../place-details/place-details';
-import { CategoriesModalPage } from '../categories-modal/categories-modal';
 
 @Component({
   selector: 'page-schedule',
@@ -10,60 +10,22 @@ import { CategoriesModalPage } from '../categories-modal/categories-modal';
 })
 export class SchedulePage {
 
-  category = '';
-  seachResults = [
-    {
-      title: 'Bangkok'
-    },
-    {
-      title: 'Korat'
-    },
-    {
-      title: 'asdsads'
-    }
-  ];
-  features = [
-    {
-      title: 'aaaa'
-    },
-    {
-      title: 'bbb'
-    },
-    {
-      title: 'ccc'
-    },
-    {
-      title: 'dddd'
-    },
-    {
-      title: 'eee'
-    },
-    {
-      title: 'fff'
-    }
-  ];
+  constructor(public navCtrl: NavController, public scheduleService: ScheduleService) {
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
-
-  }
-
-  searchInput(evt) {
-    console.log(evt.target.value);
   }
 
   openPlaceDetails(item) {
     this.navCtrl.push(PlaceDetailsPage, { item: item });
   }
 
-  changeCategory(cat) {
-    this.category = cat;
-  }
+  timeFormat(minute) {
+    function zero(n) {
+      if(n < 10) return '0' + n;
+      if(n == 0) return '00';
+      return '' + n;
+    }
 
-  viewCategories() {
-    let modal = this.modalCtrl.create(CategoriesModalPage, {
-      changeCategory: this.changeCategory.bind(this)
-    });
-    modal.present();
+    return zero(Math.floor(minute / 60)) + ':' + zero(minute % 60); 
   }
 
 }
