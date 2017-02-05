@@ -25,7 +25,15 @@ export class SchedulePage {
       return '' + n;
     }
 
-    return zero(Math.floor(minute / 60)) + ':' + zero(minute % 60); 
+    return zero(Math.floor(minute / 60)) + ':' + zero(minute % 60);
+  }
+
+  moveup(item) {
+    this.scheduleService.moveup(item);
+  }
+
+  movedown(item) {
+    this.scheduleService.movedown(item);
   }
 
 }
