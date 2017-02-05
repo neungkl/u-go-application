@@ -15,7 +15,7 @@ export class ScheduleService {
     }
   }
 
-  moveup(item) {
+  movedown(item) {
     let index = this.find(item);
     if(index - 1 < 0) return ;
     let tmp = this.places[index - 1];
@@ -23,7 +23,7 @@ export class ScheduleService {
     this.places[index] = tmp;
   }
 
-  movedown(item) {
+  moveup(item) {
     let index = this.find(item);
     if(index + 1 > this.places.length - 1) return ;
     let tmp = this.places[index];
