@@ -19,16 +19,17 @@ export class MapPage {
   ans;
   best: number = Infinity;
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.loadMap();
   }
 
   constructor(public navCtrl: NavController, public placeService: PlaceService) {
-    this._markerList = [];
-    this._latLngList = [];
   }
 
   loadMap() {
+
+    this._markerList = [];
+    this._latLngList = [];
 
     let latLng = {
       lat: 12.570097,
@@ -54,7 +55,7 @@ export class MapPage {
       let curLatLng = {
         lat: parseFloat(pos[0]),
         lng: parseFloat(pos[1]),
-        recommend: places[i].recommend
+        star: places[i].star
       };
 
       let icon = {
@@ -62,7 +63,7 @@ export class MapPage {
         scaledSize: new google.maps.Size(15, 19)
       };
 
-      if(places[i].recommend) {
+      if(places[i].star) {
         icon = {
           url: 'assets/img/pin-yellow.png',
           scaledSize: new google.maps.Size(25, 32)
@@ -105,7 +106,8 @@ export class MapPage {
   find(n,d,dist,ans) {
     if(d >= 5) {
       if(dist < this.best) {
-        this.ans = ans;
+        this.ans = [];
+        for(let i=0; i<ans.length; i++) this.ans[i] = ans[i];
         this.best = dist;
       }
       return ;
@@ -124,7 +126,7 @@ export class MapPage {
           let latLng2 = this._latLngList[prev];
           let dd = this.measure(latLng1.lat, latLng1.lng, latLng2.lat, latLng2.lng);
 
-          if(dd < best2 && this._latLngList[i].recommend) {
+          if(dd < best2 && this._latLngList[i].star) {
             best2 = dd;
             chooseI2 = i;
           }
@@ -135,17 +137,21 @@ export class MapPage {
         }
       }
       chooseI = chooseI2 === -1 ? chooseI : chooseI2;
-      ans[d] = chooseI;
-      this.find(chooseI,d + 1,dist + best,ans);
+      ans.push(chooseI);
+      var tmp = [];
+      for(let i=0; i<ans.length; i++) tmp.push(ans[i]);
+      this.find(chooseI,d + 1,dist + best, tmp);
+      ans.pop();
     }
   }
 
   calculateShortestPath() {
 
     let lineSequence = [];
+    this.best = Infinity;
 
     for(let i=0; i<this._latLngList.length; i++) {
-      if(this._latLngList[i].recommend) {
+      if(this._latLngList[i].star) {
         this.find(i,0,0,[i]);
       }
     }
@@ -156,8 +162,6 @@ export class MapPage {
         lng: this._latLngList[this.ans[i]].lng
       });
     }
-
-    console.log(lineSequence);
 
     var recommendPath = new google.maps.Polyline({
       path: lineSequence,

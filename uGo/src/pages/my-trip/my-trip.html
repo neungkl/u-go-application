@@ -20,7 +20,7 @@
       <div class="card-title">{{ item.name }}</div>
       <div class="card-subtitle">Thailand</div>
       <ion-card-content>
-          <button ion-button color="dark" round small *ngFor="let day of item.days">Day {{day}}</button>
+          <button ion-button color="dark" round small (click)="openMap()" *ngFor="let day of item.days">Day {{day}}</button>
       </ion-card-content>
     </ion-card>
 
