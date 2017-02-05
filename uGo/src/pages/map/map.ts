@@ -40,7 +40,7 @@ export class MapPage {
 
     let mapOptions = {
       center: latLng,
-      zoom: 14,
+      zoom: 12,
       disableDefaultUI: true
     }
 
