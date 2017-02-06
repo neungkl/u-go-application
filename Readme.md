@@ -1,14 +1,13 @@
-U Go
+:car: U Go
 ====
 
-U Go We plan is an application that find best path for plan your traveling, develop during [Chula Tech Startup](https://www.facebook.com/CUTechStartup/) hackathon session.
+U Go is an application that find best path for plan your traveling, develop during [Chula Tech Startup](https://www.facebook.com/CUTechStartup/) hackathon session.
 
 <img src="ugo-preview.png" width="750">
 
 ## Introduction
 
 This application aiming to solve the problem from inconvenience to find your best plan to your trip.
-
 We have an idea to solve this struggle by create an application to find your
 best plan depends on your favor.
 
