@@ -5,6 +5,8 @@ U Go is an application that find best path for plan your traveling, develop duri
 
 <img src="ugo-preview.png" width="750">
 
+:point_right: Demo : [https://neungkl.github.io/u-go-application/](https://neungkl.github.io/u-go-application/)
+
 ## Introduction
 
 This application aiming to solve the problem from inconvenience to find your best plan to your trip.
